@@ -20,7 +20,10 @@ var server = http.createServer(function(req,res){
         if(err) throw err;
         console.log("open file!");
     });
-    
+    fs.writeFile('write_file.txt','this is written by node js function',function(err,file){
+        if(err) throw err;
+        console.log('write file by node');
+    });
 });
 
 server.listen(3000, '127.0.0.1');
