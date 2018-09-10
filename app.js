@@ -1,8 +1,13 @@
 var http = require('http');
+var fs = require('fs');
 
 var server = http.createServer(function(req,res){
-    res.writeHead(200,{'content-Type':'text/plain'});
-    res.end('hello randika');
+    fs.readFile('demo_html.html',function(err,data){
+        res.writeHead(200,{'Content-Type':'text/html'});
+        res.write(data);
+        res.end();
+    });
+    
 });
 
 server.listen(3000, '127.0.0.1');
