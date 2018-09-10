@@ -20,9 +20,24 @@ var server = http.createServer(function(req,res){
         if(err) throw err;
         console.log("open file!");
     });
+    // write file, replace the specific file and content exists. If not create new file.
     fs.writeFile('write_file.txt','this is written by node js function',function(err,file){
         if(err) throw err;
         console.log('write file by node');
+    });
+    // if you need to update file you can use.
+    // appendFIle() and writeFile()
+
+    // delete file
+    fs.unlink('demo_txt.html',function(err){
+        if(err) throw err;
+        console.log('unlink file');
+    });
+    // rename file
+    fs.rename('renamewritefile.txt','write_file1.txt', function(err){
+        // if (err) throw err;
+        console.log('rename file');
+        // res.write('renamed file');
     });
 });
 
