@@ -1,12 +1,15 @@
-// add upper-case module using cmd, npm install upper-case
+var events = require('events');
 
-var http = require('http');
-var uc = require('upper-case')
+// use to get all events properties and method
+var eventEmitter = new events.EventEmitter();
 
-var server = http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(uc('Hello do it'));
-    res.end();
-})
-server.listen(3000,'127.0.0.1'); 
-console.log('now listening to port 3000');
+//Create an event handler:
+var myEventHandler = function () {
+  console.log('I hear a scream!');
+}
+
+//Assign the event handler to an event:
+eventEmitter.on('scream', myEventHandler);
+
+//Fire the 'scream' event:
+eventEmitter.emit('scream');
