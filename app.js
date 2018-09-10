@@ -13,6 +13,13 @@ var server = http.createServer(function(req,res){
         if(err) throw err;
         console.log('Saved');
     });
+    // open file openfile.txt
+    // if not exist create new file
+    // w mean is write file
+    fs.open('openfile.txt','w',function(err,file){
+        if(err) throw err;
+        console.log("open file!");
+    });
     
 });
 
